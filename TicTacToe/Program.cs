@@ -10,6 +10,7 @@ namespace TicTacToe
     {
         static void Main(string[] args)
         {
+            // 
             //char[] playerArray = { '1', '2' };
             char[] markArray = { 'X', 'O' };
             //char[] playersNumber = { playerArray[0], playerArray[1] };
@@ -46,14 +47,16 @@ namespace TicTacToe
             int boardValue = Int32.Parse(board[move]);
             if (move == boardValue)
             {
-
+                board[move] = playersMark;
             }
-
+            else
+            {
+                Console.WriteLine("That Spot is taken! Choose another...");
+            }
             //move.Equals(Int32.Parse(board[move - 1]));
 
 
             //string[] marks = { "X", "O", string.{counter} ;
 
-        }
+        }   }
     }
-}
