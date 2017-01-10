@@ -14,7 +14,7 @@ namespace TicTacToe
             char[] markArray = { 'X', 'O' };
             //char[] playersNumber = { playerArray[0], playerArray[1] };
             char[] playersMark = { markArray[0], markArray[2] };
-            
+
             Console.WriteLine("Tic-Tac-Toe");
 
 
@@ -36,23 +36,24 @@ namespace TicTacToe
                 {
                     counter++;
                 }
- 
+
             }
             Console.WriteLine($"Player {playersMark} , Choose first move");
 
-            
+
             string choice = Console.ReadLine();
             int move = Int32.Parse(choice);
             int boardValue = Int32.Parse(board[move]);
             if (move == boardValue)
             {
-               
-            } 
-            
+
+            }
+
             //move.Equals(Int32.Parse(board[move - 1]));
-             
-            
+
+
             //string[] marks = { "X", "O", string.{counter} ;
-            
+
         }
     }
+}
