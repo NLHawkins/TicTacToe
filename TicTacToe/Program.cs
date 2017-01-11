@@ -21,7 +21,7 @@ namespace TicTacToe
 
 
             
-            for (int gameCounter = 0; gameCounter == 0; gameCounter++)
+            
             {
 
                 string[] board =
@@ -46,17 +46,19 @@ namespace TicTacToe
 
 
                 string[] playerArray = { "X", "O" };
-                string player = playerArray[0];
+                string player = playerArray[gameCounter];
 
                 Console.WriteLine($"Make Your Move Player {player}");
 
                 string choice = Console.ReadLine();
                 int move = Int32.Parse(choice);
                 int boardValue = Int32.Parse(board[move]);
-
-                if (move == boardValue)
+                int[] gameArray = { 0, 1 };
+                foreach (int gameCounter in gameArray) 
+                    if (move == boardValue)
                 {
-                    board[move] = playerArray[gameCounter];
+                    board[move] = player;
+                    
                     
                     //here i want to draw the array, so far i have insert the foreach loop we used to originally draw by can only change one at a time
                 }
