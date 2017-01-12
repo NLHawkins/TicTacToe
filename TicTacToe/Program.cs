@@ -49,9 +49,17 @@ namespace TicTacToe
 
                 int bull;
                 string moveCheck = Console.ReadLine();
-                bool move
-                if ()
-                int move = int.Parse();
+                bool moveBool = int.TryParse(moveCheck, out bull);
+                if (moveBool == false)
+                {
+                    Console.WriteLine("Thats not a choice!");
+                }
+                else
+                {
+
+                }
+                
+                int move = int.Parse(moveCheck);
                 
                 Console.Clear();
 
@@ -98,7 +106,7 @@ namespace TicTacToe
 
             if (turn == 9)
             {
-                Console.WriteLine("CAT!!!!!.....GAME OVER");
+                Console.WriteLine("CAT!!!!!....GAME OVER");
             }
             else
             {
