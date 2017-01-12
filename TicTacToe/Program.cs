@@ -34,35 +34,31 @@ namespace TicTacToe
                 };
 
             Console.WriteLine("Tic-Tac-Toe");
+
             string player = "X";
-            bool keepPlaying = true;
             int turn = 1;
 
-
+            bool keepPlaying = true;
             while (keepPlaying)
-
-
             {
                 DrawBoard(board);
 
                 Console.WriteLine($"Make Your Move Player {player}");
 
                 int bull;
-                bool inputBool;
+
                 string moveCheck = Console.ReadLine();
                 bool moveBool = int.TryParse(moveCheck, out bull);
+
                 while (moveBool == false)
                 {
                     Console.WriteLine("Thats not a choice!");
-                    
+                    Console.WriteLine("Choose Again");
+                    moveCheck = Console.ReadLine();
+                    moveBool = int.TryParse(moveCheck, out bull);
                 }
-                else
-                {
-                    goto.
-                }
-                
+
                 int move = int.Parse(moveCheck);
-                
                 Console.Clear();
 
                 bool boardBool = int.TryParse(board[move], out bull);
@@ -78,6 +74,7 @@ namespace TicTacToe
                             || (board[2] == board[5] && board[5] == board[8])
                              || (board[0] == board[4] && board[4] == board[8])
                               || (board[2] == board[4] && board[4] == board[6]))
+
                     {
                         keepPlaying = false;
                     }
@@ -86,26 +83,18 @@ namespace TicTacToe
                     {
                         break;
                     }
-                    
-                    
                     else
                     {
                         player = player == "X" ? "O" : "X";
                         turn++;
                     }
-
-
                 }
-
                 else
                 {
-
-
                     Console.WriteLine("That Spot is taken! Choose another...");
                     keepPlaying = true;
                 }
             }
-
             if (turn == 9)
             {
                 Console.WriteLine("CAT!!!!!....GAME OVER");
@@ -114,7 +103,6 @@ namespace TicTacToe
             {
                 Console.WriteLine($"Player {player} Wins!");
             }
-           
         }
     }
 }
