@@ -48,15 +48,17 @@ namespace TicTacToe
                 Console.WriteLine($"Make Your Move Player {player}");
 
                 int bull;
+                bool inputBool;
                 string moveCheck = Console.ReadLine();
                 bool moveBool = int.TryParse(moveCheck, out bull);
-                if (moveBool == false)
+                while (moveBool == false)
                 {
                     Console.WriteLine("Thats not a choice!");
+                    
                 }
                 else
                 {
-
+                    goto.
                 }
                 
                 int move = int.Parse(moveCheck);
