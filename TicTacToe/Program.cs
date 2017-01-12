@@ -8,163 +8,107 @@ namespace TicTacToe
 {
     class Program
     {
+        static void DrawBoard(string[] board)
+        {
+            int counter = 0;
+            foreach (string place in board)
+            {
+                Console.Write(" " + place);
+                if (counter == 2)
+                {
+                    Console.WriteLine("");
+                    counter = 0;
+                }
+                else
+                {
+                    counter++;
+                }
+            }
+        }
+
         static void Main(string[] args)
         {
-            // 
-
-            //char[] markArray = { 'X', 'O' };
-            //char[] playersNumber = { playerArray[0], playerArray[1] };
-
-
-
-            Console.WriteLine("Tic-Tac-Toe");
-
-
-            while (true)
-
-            {
-
-                for (int x = 0; x < 17; x++)
-                {
-                    int gameCounter = 0;
-                    if (x % 2 == 0)
-                    {
-                        gameCounter = 0;
-                    }
-                    else
-                    {
-                        gameCounter = 1;
-                    }
-
-
-
-                    //tell game counter to be 0 if turn is even, 1 if turn is odd
-
-
-
-                    string[] board =
+            string[] board =
                 {
                 "0","1","2","3","4","5","6","7","8",
                 };
-                    int counter = 0;
-                    foreach (string place in board)
+
+            Console.WriteLine("Tic-Tac-Toe");
+            string player = "X";
+            bool keepPlaying = true;
+            int turn = 1;
+
+
+            while (keepPlaying)
+
+
+            {
+                DrawBoard(board);
+
+                Console.WriteLine($"Make Your Move Player {player}");
+
+                int bull;
+                string moveCheck = Console.ReadLine();
+                bool move
+                if ()
+                int move = int.Parse();
+                
+                Console.Clear();
+
+                bool boardBool = int.TryParse(board[move], out bull);
+
+                if (boardBool == true)
+                {
+                    board[move] = player;
+                    if ((board[0] == board[1] && board[1] == board[2])
+                        || (board[3] == board[4] && board[4] == board[5])
+                         || (board[6] == board[7] && board[7] == board[8])
+                          || (board[0] == board[3] && board[3] == board[6])
+                           || (board[1] == board[4] && board[4] == board[7])
+                            || (board[2] == board[5] && board[5] == board[8])
+                             || (board[0] == board[4] && board[4] == board[8])
+                              || (board[2] == board[4] && board[4] == board[6]))
                     {
-                        Console.Write(" " + place);
-                        if (counter == 2)
-                        {
-                            Console.WriteLine("");
-                            counter = 0;
-                        }
-                        else
-                        {
-                            counter++;
-                        }
+                        keepPlaying = false;
                     }
 
-                    string[] playerArray = { "X", "O" };
-                    string player = playerArray[gameCounter];
-
-                    Console.WriteLine($"Make Your Move Player {player}");
-
-                    string choice = Console.ReadLine();
-                    int move = Int32.Parse(choice);
-                    int boardValue = Int32.Parse(board[move]);
-                    //int[] gameArray = { 0, 1 };
-                    //foreach (int gameCounter in gameArray)
-                    if (move == boardValue)
+                    else if (turn == 9)
                     {
-                        board[move] = player;
-
-
-                        //here i want to draw the array, so far i have insert the foreach loop we used to originally draw by can only change one at a time
+                        break;
                     }
+                    
+                    
                     else
                     {
-                        Console.WriteLine("That Spot is taken! Choose another...");
+                        player = player == "X" ? "O" : "X";
+                        turn++;
                     }
+
+
+                }
+
+                else
+                {
+
+
+                    Console.WriteLine("That Spot is taken! Choose another...");
+                    keepPlaying = true;
                 }
             }
 
-            /*  Console.WriteLine($"Make Your Move Player {player}");
-
-              string choice = Console.ReadLine();
-              int move = Int32.Parse(choice);
-              int boardValue = Int32.Parse(board[move]);
-
-              if (move == boardValue)
-              {
-                  board[move] = playerArray[gameCounter];
-
-
-                  foreach (string place in board)
-                  {
-                      Console.Write(" " + place);
-                      if (counter == 2)
-                      {
-                          Console.WriteLine("");
-                          counter = 0;
-                      }
-                      else
-                      {
-                          counter++;
-                      }
-
-                  }
-              }
-              else
-              {
-                  Console.WriteLine("That Spot is taken! Choose another...");
-              }
-
-          }
-          */
-
-
-
-
-            /* Console.WriteLine($"Make Your Move Player{player}");
-             string[] playerArray = { "X", "O" };
-             string choice = Console.ReadLine();
-             int move = Int32.Parse(choice);
-             int boardValue = Int32.Parse(board[move]);
-
-             if (move == boardValue)
-             {
-                 board[move] = playerArray[gameCounter];
-             }
-             else
-             {
-                 Console.WriteLine("That Spot is taken! Choose another...");
-             }
-    gameCounter = 0;
-         }
-
-     }
-
-     //Console.WriteLine($"Player{player} , Choose your move");
-
-
-
-     /*string choice = Console.ReadLine();
-     int move = Int32.Parse(choice);
-     int boardValue = Int32.Parse(board[move]);
-     if (move == boardValue)
-     {
-         board[move] = playerArray[gameCounter];
-     }
-     else
-     {
-         Console.WriteLine("That Spot is taken! Choose another...");
-     }*/
-            //move.Equals(Int32.Parse(board[move - 1]));
-
-
-            //string[] marks = { "X", "O", string.{counter} ;
-
-
+            if (turn == 9)
+            {
+                Console.WriteLine("CAT!!!!!.....GAME OVER");
+            }
+            else
+            {
+                Console.WriteLine($"Player {player} Wins!");
+            }
+           
         }
     }
 }
+
 
 
 
